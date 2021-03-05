@@ -23,5 +23,5 @@ EXPOSE 4869
 VOLUME  /zimg/bin/img 
 WORKDIR /zimg/bin
 ENTRYPOINT ["tini", "--"]
-# Define default command.
+
 CMD [ "./zimg", "conf/zimg.lua"]
