@@ -11,7 +11,7 @@ docker run -it -d -p 4869:4869 -v /data/zimg/:/zimg/bin/img --name zimg 52334755
 <template>
   <div>
     <el-upload
-      action="/upload"
+      action="http://localhost:4869/upload"
       :show-file-list="false"
       :http-request="uploadImg"
       :on-success="onSuccess"
@@ -41,7 +41,7 @@ export default {
       console.log("onError", arguments);
     },
     async uploadImg(f) {
-      const { data: resp } = await this.$axios.post("/upload", f.file, {
+      const { data: resp } = await this.$axios.post("http://localhost:4869/upload", f.file, {
         headers: { "content-type": "jpeg" },
       });
       if (resp.ret) {
